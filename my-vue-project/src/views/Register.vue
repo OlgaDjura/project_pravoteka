@@ -1,7 +1,7 @@
 <template>
     <div class="auth-overlay">
         <div class="auth-modal">
-            <h2>Вход</h2>
+            <h2>Регистрация</h2>
             <form>
                 <!-- поля формы -->
             </form>

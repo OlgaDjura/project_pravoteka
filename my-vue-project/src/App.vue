@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="body">
     <Header @login="handleLogin"></Header>
+    <router-view></router-view>
     <main>
       <router-view v-if="isLoggedIn"></router-view>
       <HomeSection></HomeSection>

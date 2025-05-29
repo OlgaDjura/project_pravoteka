@@ -6,10 +6,7 @@
                     <span>Правотека</span>
                 </a>
 
-                <div class="header__overlay"
-                ref="overlayRef"
-                data-js-header-overlay
-                >
+                <div class="header__overlay" ref="overlayRef" data-js-header-overlay>
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li v-for="link in navLinks" :key="link.href" class="header__menu_item">
@@ -21,14 +18,16 @@
                             </li>
                         </ul>
                     </nav>
-                    <ButtonMy @click="onButtonClick">Вход</ButtonMy>
+                    <RouterLink to="/login">
+                        <ButtonMy @click="onButtonClick">Вход</ButtonMy>
+                    </RouterLink>
+                    <RouterLink to="/register">
+                        <ButtonMy @click="onButtonClick">Регистрация</ButtonMy>
+                    </RouterLink>
                 </div>
 
                 <button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu"
-                    title="Open menu"
-                    ref="burgerButtonRef"
-                    @click="toggleMenu"
-                    >
+                    title="Open menu" ref="burgerButtonRef" @click="toggleMenu">
                     <span class="burger-button__line"></span>
                     <span class="burger-button__line"></span>
                     <span class="burger-button__line"></span>
@@ -225,6 +224,10 @@ onUnmounted(() => {
                 flex-direction: column;
                 row-gap: 1rem;
             }
+        }
+
+        &_item {
+            font-size: fluid(16, 14);
         }
 
 
