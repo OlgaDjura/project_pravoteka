@@ -3,6 +3,7 @@
         <div class="header__body">
             <div class="header__body-inner container">
                 <a href="/" class="header__logo logo" aria-label="Home" title="Home">
+                    <Logo></Logo>
                     <span>Правотека</span>
                 </a>
 
@@ -42,6 +43,7 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 import ButtonMy from './ButtonMy.vue'
 import { useRouter } from 'vue-router'  // Импортируем useRouter
 import { defineEmits } from 'vue'
+import Logo from './Logo.vue'
 
 
 const isMenuOpen = ref(false)
@@ -77,7 +79,6 @@ const navLinks = [
     { href: '#choice', label: 'ОТБОР' },
     { href: '#we', label: 'ПОЧЕМУ МЫ' },
     { href: '#questions', label: 'ВОПРОСЫ' },
-    { href: '#materials', label: 'ПОЛЕЗНЫЕ МАТЕРИАЛЫ' },
     { href: '#contacts', label: 'КОНТАКТЫ' },
 ]
 
@@ -254,8 +255,10 @@ onUnmounted(() => {
     }
 
     &__logo {
-        font-size: fluid(30, 15);
+        font-size: fluid(26, 23);
         font-weight: 500;
+        display: flex;
+        column-gap: rem(10);
     }
 
     &__contact-us-link {

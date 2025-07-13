@@ -22,24 +22,16 @@ section {
     scroll-margin-top: 120px; /* высота шапки + немного запаса */
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-    font-weight: 500;
-    text-align: center;
-
-}
 
 
 h1, .h1 {
-    @include fluid-text(45, 20);
+    @include fluid-text(45, 25);
+    font-weight: 500;
     line-height: 1.2;
 }
 h2, .h2 {
-    @include fluid-text(35, 15);
+    @include fluid-text(35, 18);
+    font-weight: 500;
 
     line-height: 1.3;
 }

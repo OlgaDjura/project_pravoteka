@@ -10,7 +10,7 @@
       <ChoiceSection></ChoiceSection>
       <WeSection></WeSection>
       <QuestionsSection></QuestionsSection>
-      <MaterialsSection></MaterialsSection>
+      
     </main>
     <FooterMy></FooterMy>
   </div> 
@@ -25,7 +25,7 @@ import HelpSection from './components/HelpSection.vue'
 import ChoiceSection from './components/ChoiceSection.vue'
 import WeSection from './components/WeSection.vue'
 import QuestionsSection from './components/QuestionsSection.vue'
-import MaterialsSection from './components/MaterialsSection.vue'
+
 
 import FooterMy from './components/FooterMy.vue'
 
