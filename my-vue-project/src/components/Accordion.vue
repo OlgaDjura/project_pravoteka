@@ -83,7 +83,6 @@ const toggleItem = (index) => {
 
     &__title {
         margin: 0;
-        font-size: fluid(30, 25);
         font-weight: 500;
     }
 
@@ -104,7 +103,7 @@ const toggleItem = (index) => {
             padding: 16px 0;
             color: var(--color-dark-15);
             line-height: 1.5;
-            font-size: fluid(25, 18);
+            
         }
     }
 }

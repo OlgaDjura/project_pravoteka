@@ -38,6 +38,7 @@ const handleItemClick = (item) => {
     display: flex;
     flex-direction: column;
     gap: rem(5);
+    font-size: fluid(14, 12);
     
 }
 
@@ -45,9 +46,9 @@ const handleItemClick = (item) => {
     display: flex;
     /* Добавим flex для выравнивания иконки и текста */
     align-items: center;
-    gap: 8px;
+    gap: fluid(8, 5);
     /* Отступ между иконкой и текстом */
-    padding: 8px 12px;
+    padding: rem(8) rem(12);
     cursor: pointer;
     padding: 0;
     
@@ -55,7 +56,7 @@ const handleItemClick = (item) => {
 }
 
 .list-item:hover {
-    background-color: #f5f5f5;
+    color: #f5f5f5;
 }
 
 .icon {

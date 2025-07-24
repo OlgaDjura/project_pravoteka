@@ -74,7 +74,7 @@ const accordionItems = [
         flex-direction: column;
         row-gap: rem(20);
         margin-top: fluid(50, 30);
-        font-size: fluid(25, 12);
+        
     }
 }
 </style>
