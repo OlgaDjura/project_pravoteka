@@ -3,17 +3,14 @@
 :root {
     --color-light: #ffffff;
     --color-dark: #030303;
-    --color-dark-15: #262626;
-    --color-dark-20: #333;
-    --color-gray-50: rgb(216, 216, 216);
-    --color-gray-60: rgb(199, 199, 208);
-
-    --color-accent: #363e24;
-    --color-red: #ff5500;
+    --color-brown: #3A2517;
+    --color-coffee: #6F4E37;
+    --color-sand: #F5F0EB;// #e1c9ac;
+    --color-burgundy: #88292F;
 
     --gradient: linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-accent) 136%);
 
-    --border: #{rem(1)} solid var(--color-gray-60);
+    --border: #{rem(1)} solid var(--color-brown);
 
     --font-family-base: 'Raleway-Italic', sans-serif ;
     --font-family-h: 'Raleway-Medium', sans-serif ;

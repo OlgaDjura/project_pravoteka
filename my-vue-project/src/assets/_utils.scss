@@ -16,8 +16,14 @@
 }
 
 .visible-mobile {
-    @include mobile-above {
-        display: none !important;
+    display: none; // По умолчанию скрыто на всех экранах
+
+  @include mobile { // Показываем ТОЛЬКО на мобильных
+    display: flex; // Или block, в зависимости от вашей вёрстки
+    }
+
+  @include mobile-above { // Дублируем скрытие для десктопа (на всякий случай)
+    display: none !important;
     }
 
 }

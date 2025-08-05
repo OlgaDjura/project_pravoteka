@@ -15,8 +15,8 @@
 
 <style scoped lang="scss">
 .logoSite {
-    width: fluid(20, 14);
-    height: fluid(20, 14);
+    width: fluid(30, 20);
+    height: fluid(30, 20);
     
 }
 </style>

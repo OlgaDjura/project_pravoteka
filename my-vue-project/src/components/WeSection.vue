@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-import banner from '@/assets/images/why_pravoteka.png'
 
 const weTitle = 'Почему Правотека?'
 
@@ -42,22 +41,7 @@ const weAnswers = [
 
 <style scoped lang="scss">
 .we {
-        position: relative;
-        z-index: 1;
-        margin-top: fluid(50, 30);
-        
-        &::before {
-        content: "";//для прозрачности фона
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('../assets/images/why_pravoteka.png');
-        background-size: cover;
-        background-position: center;
-        opacity: 0.8;
-        z-index: -1;
-        } 
+        background-image: linear-gradient(90deg,rgba(58, 37, 23, 1) 9%, rgba(136, 41, 47, 1) 87%);;
 
         &__main {
             padding: rem(85) rem(63);
@@ -78,9 +62,15 @@ const weAnswers = [
             }
         }
 
+        &__item {
+            background: var(--color-coffee);
+            box-shadow: 0 rem(5) rem(10) var(--color-brown);
+            border-radius: rem(8);
+            padding: fluid(20, 15);
+        }
+
         &__item-text, 
         &__description  {
-            font-family: --font-family-additionally;
             font-size: fluid(20, 16);
             color: var(--color-light);
         }
@@ -89,14 +79,13 @@ const weAnswers = [
         &__item-title {
             text-align: start;
             font-weight: 400;
-            text-shadow:
-            1px 1px 2px rgba(0,0,0,0.3),
-            3px 3px 6px rgba(0,0,0,0.15);
-            -webkit-text-stroke: 1px var(--color-light);
+            color: var(--color-light);
+            
         }
 
-        &__description {
-
+        &__item-title {
+            margin-bottom: fluid(20, 15);
         }
+
 }
 </style>

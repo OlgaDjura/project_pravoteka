@@ -2,7 +2,7 @@
     <section class="help" id="help" aria-label="help-title">
         <div class="help__main container">
             <!-- Заголовок секции -->
-            <h2 class="how__title-line line h1" id="help-title">{{ sectionTitle }}</h2>
+            <h2 class="how__title-line h1" id="help-title">{{ sectionTitle }}</h2>
 
             <!-- Список карточек, генерируем с помощью v-for -->
             <ul class="help__list">
@@ -23,10 +23,9 @@
 </template>
 
 <script setup>
-//импортируем пути до картинок. это необходимо для корректного отображения изображений. если прописать пути в массиве работать не будет
-import card1 from '../assets/images/card-1.jpeg'
-import card2 from '../assets/images/card-2.jpeg'
-import card3 from '../assets/images/card-3.jpeg'
+import card1 from '../assets/images/card-1-1.jpeg'
+import card2 from '../assets/images/card-2-2.jpg'
+import card3 from '../assets/images/card-3-3.png'
 // Заголовок секции
 const sectionTitle = 'Кому помогают юристы'
 
@@ -49,11 +48,13 @@ const helpCards = [
 
 <style scope lang="scss">
 .help {
+    padding-block: fluid(100, 50);
+    
     &__main {
-        margin-top: fluid(150, 50);
+        
         display: flex;
         flex-direction: column;
-        gap: fluid(100, 30);
+        gap: fluid(70, 50);
         text-align: center;
     }
 
@@ -70,10 +71,11 @@ const helpCards = [
     }
 
     &__item {
-        background-color: var(--color-gray-50);
+        background-color: var(--color-brown);
         border-radius: fluid(22, 12);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;
+        color: var(--color-light);
 
         display: block;
         max-width: 100%;
@@ -82,7 +84,7 @@ const helpCards = [
 
         @include hover {
             transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 10px 20px var(--color-dark);
+            box-shadow: 0 10px 20px var(--color-coffee);
             }
 
         @include mobile {
@@ -101,6 +103,7 @@ const helpCards = [
 
     &__help-card-image {
         width: 100%;
+        border-radius: fluid(22, 12);
 
         @include mobile {
             width: auto;

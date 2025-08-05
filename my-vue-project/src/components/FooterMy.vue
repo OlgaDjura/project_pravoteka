@@ -111,8 +111,8 @@ const logItem = (item) => {
 
 <style scoped lang="scss">
 .footer {
-    background-color: var(--color-dark-20);
-    color: var(--color-gray-50);
+    background-color: var(--color-brown);
+    color: var(--color-light);
     padding: rem(50) 0;
 
     &__menu {

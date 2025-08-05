@@ -41,16 +41,13 @@ const choiceAnswers = [
 
 <style scoped lang="scss">
 .choice {
-    &__main {
-        margin-top: fluid(100, 50);
-    }
 
     &__title {
         text-align: start;
     }
 
     &__list-wrapper {
-        @include mobile {
+        @include laptop {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding-left: rem(20);
@@ -63,21 +60,20 @@ const choiceAnswers = [
     }
 
     &__list {
-        margin-top: fluid(50, 20);
+        margin-top: fluid(70, 50);
+        padding-block: fluid(70, 50) ;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: rem(20);
         text-align: center;
-        border-top: rem(3) solid var(--color-gray-60);
+       // border-top: rem(3) solid var(--color-burgundy);
         padding-top: fluid(80, 40);
 
         @include mobile {
-            @include mobile {
                 display: flex;
                 flex-wrap: nowrap;
                 gap: rem(16);
-                min-width: max-content; // чтобы всё помещалось
-            }
+                min-width: max-content; // чтобы всё помещалось  
         }
     }
 
@@ -92,13 +88,8 @@ const choiceAnswers = [
     }
 
     &__item-title {
-        font-weight: 900;
         text-align: center;
-        color: #fff;
-        text-shadow:
-            1px 1px 2px rgba(0, 0, 0, 0.3),
-            3px 3px 6px rgba(0, 0, 0, 0.15);
-        -webkit-text-stroke: 1px var(--color-dark-20);
+        color: var(--color-dark);
         line-height: 2;
 
         @include mobile {
@@ -117,14 +108,14 @@ const choiceAnswers = [
             transform: translateX(-50%) translateY(-10px);
             width: fluid(50, 30);
             height: fluid(50, 30);
-            background-color: var(--color-gray-60);
+            background-color: var(--color-burgundy);
             border-radius: rem(12);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: fluid(25, 20);
             font-weight: bold;
-            color: var(--color-dark-20);
+            color: var(--color-light);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
             opacity: 0;
@@ -143,14 +134,14 @@ const choiceAnswers = [
             transform: translateX(-50%) translateY(-10px);
             width: fluid(50, 30);
             height: fluid(50, 30);
-            background-color: var(--color-gray-60);
+            background-color: var(--color-burgundy);
             border-radius: rem(12);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: fluid(25, 20);
             font-weight: bold;
-            color: var(--color-dark-20);
+            color: var(--color-light);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
             opacity: 0;
@@ -169,14 +160,14 @@ const choiceAnswers = [
             transform: translateX(-50%) translateY(-10px);
             width: fluid(50, 30);
             height: fluid(50, 30);
-            background-color: var(--color-gray-60);
+            background-color: var(--color-burgundy);
             border-radius: rem(12);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: fluid(25, 20);
             font-weight: bold;
-            color: var(--color-dark-20);
+            color: var(--color-light);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
             opacity: 0;
@@ -195,18 +186,18 @@ const choiceAnswers = [
             transform: translateX(-50%) translateY(-10px);
             width: fluid(50, 30);
             height: fluid(50, 30);
-            background-color: var(--color-gray-60);
+            background-color: var(--color-burgundy);
             border-radius: fluid(12, 8);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: fluid(25, 20);
             font-weight: bold;
-            color: var(--color-dark-20);
+            color: var(--color-light);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
             opacity: 0;
-            animation: floatIn 0.6s ease-out 0.3s forwards;
+            animation: floatIn 0.6s ease-out 0.3s forwards ;
         }
     }
 

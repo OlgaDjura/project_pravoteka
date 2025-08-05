@@ -48,7 +48,7 @@
 
         <!-- Ссылка на вход -->
         <p class="register-form__login-link">
-            Уже есть аккаунт? <router-link to="/login" class="register-form__login-link">Войти</router-link>
+            Уже есть аккаунт? <router-link to="/login-page" class="register-form__login-link">Войти</router-link>
         </p>
     </div>
 </template>

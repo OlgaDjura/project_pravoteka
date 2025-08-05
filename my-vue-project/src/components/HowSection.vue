@@ -1,7 +1,7 @@
 <template>
     <section class="how" id="how" aria-label="how-title">
         <div class="how__main container">
-            <h2 class="how__title-line line h1" id="how-title">{{ titleH2 }}</h2>
+            <h2 class="how__title-line h1" id="how-title">{{ titleH2 }}</h2>
             <ul class="how__list">
                 <li v-for="(step, index) in steps" :key="'step-' + index" class="how__item">
                     <h3 class="how__item--title">{{ step.title }}</h3>
@@ -37,18 +37,18 @@ const steps = [
 
 <style scope lang="scss">
 .how {
-    &__main {
-        margin-top: fluid(150, 50);
+    &__main {   
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: fluid(70, 50);
     }
 
     &__list {
         display: grid;
         grid-template-columns: 1fr 1fr;       
-        gap: fluid(100, 50);
+        gap: fluid(200, 50);
         margin-top: fluid(40, 20);
 
         @include mobile {
@@ -58,11 +58,20 @@ const steps = [
     }
 
     &__item {
-        line-height: 1.5;
+        line-height: 2;
+        background: var(--color-coffee);
+            box-shadow: 0 rem(5) rem(10) var(--color-brown);
+            border-radius: rem(8);
+            padding: fluid(20, 15);
+            color: var(--color-light);
+
+        @include mobile {
+            line-height: 1.5;
+        }
 
         &--title {
             margin-bottom: rem(10);
-            font-weight: 500;
+            font-weight: 600;
         }
     }
     

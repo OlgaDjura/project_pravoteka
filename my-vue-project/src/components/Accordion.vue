@@ -61,7 +61,7 @@ const toggleItem = (index) => {
 
         &--active {
             .accordion__header {
-                background-color: #867777;
+                background-color: var(--color-burgundy);
                 border-radius: rem(5);
             }
         }
@@ -76,8 +76,9 @@ const toggleItem = (index) => {
         transition: background 0.3s ease;
 
         &:hover {
-            background-color: #867777;
+            background-color: var(--color-burgundy);
             border-radius: rem(5);
+            color: var(--color-light);
         }
     }
 

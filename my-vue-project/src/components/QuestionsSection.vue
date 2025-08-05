@@ -58,7 +58,6 @@ const accordionItems = [
 
 <style scoped lang="scss">
 .questions {
-    background-color: var(--color-gray-50);
     &__main {
         padding-top: fluid(100, 50) ;
         padding-bottom: fluid(100, 50);

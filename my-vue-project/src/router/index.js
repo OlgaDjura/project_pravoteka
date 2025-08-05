@@ -1,25 +1,31 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '../views/Login.vue'
-import RegisterView from '../views/Register.vue'
+import LoginPageView from '../views/LoginPage.vue'
+import RegisterPageView from '../views/RegisterPage.vue'
+import MainPageView from '../views/MainPage.vue'
+import RegisterForLawyers from '@/views/RegisterForLawyers.vue'
 
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
-    component: LoginView,
-    meta: { requiresScrollLock: true } // ← Добавляем эту метку
-
+    path: '/',
+    name: 'Home',
+    component: MainPageView
   },
   {
-    path: '/register',
-    name: 'Register',
-    component: RegisterView,
-    meta: { requiresScrollLock: true } // ← Добавляем эту метку
-    
+    path: '/login-page',
+    name: 'LoginPage',
+    component: LoginPageView
   },
-
-  
+  {
+    path: '/register-page',
+    name: 'RegisterPage',
+    component: RegisterPageView
+  },
+  {
+    path: '/register-for-lawyers-page',
+    name: 'RegisterForLawyers',
+    component: RegisterForLawyers
+  }
 ]
 
 const router = createRouter({
@@ -27,26 +33,17 @@ const router = createRouter({
   routes
 })
 
-/*
+// Простая обработка навигации
 router.beforeEach((to, from, next) => {
-  if (to.meta.hideLayout) {
-    // Сохраняем позицию скролла
-    const scrollY = window.scrollY
-    document.body.style.position = 'fixed'
-    document.body.style.top = `-${scrollY}px`
-    document.body.style.width = '100%'
+  // Если пытаемся перейти на старые маршруты, перенаправляем на новые
+  if (to.path === '/login') {
+    next('/login-page')
+  } else if (to.path === '/register') {
+    next('/register-page')
   } else {
-    // Восстанавливаем скролл
-    const scrollY = document.body.style.top
-    document.body.style.position = ''
-    document.body.style.top = ''
-    document.body.style.width = ''
-    if (scrollY) {
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
-    }
+    next()
   }
-  next()
-})*/
+})
 
 
 export default router

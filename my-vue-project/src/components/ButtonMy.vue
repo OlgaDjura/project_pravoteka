@@ -38,18 +38,17 @@ function handleClick(event) {
 .button {
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     padding: rem(8) rem(20);
     font-size: rem(18);
-    color: var(--color-gray-60);
-    background-color: var(--color-dark-20);
-    border: var(--border);
-    border-radius: rem(12);
+    color: var(--color-light);
+    background-color: var(--color-burgundy);
+    border-radius: rem(8);
+    border: none;
 
 
     @include hover {
-        color: var(--color-accent);
-        background-color: var(--color-gray-50);
-        border-color: var(--color-accent);
+        background-color: var(--color-coffee);
     }
 
     &-accent {

@@ -1,43 +1,13 @@
 <template>
   <div id="app" class="body">
-    <Header @login="handleLogin"></Header>
     <router-view></router-view>
-    <main>
-      <router-view v-if="isLoggedIn"></router-view>
-      <HomeSection></HomeSection>
-      <HowSection></HowSection>
-      <HelpSection></HelpSection>
-      <ChoiceSection></ChoiceSection>
-      <WeSection></WeSection>
-      <QuestionsSection></QuestionsSection>
-      
-    </main>
-    <FooterMy></FooterMy>
-  </div> 
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import Header from './components/Header.vue'
-import HomeSection from './components/HomeSection.vue'
-import HowSection from './components/HowSection.vue'
-import HelpSection from './components/HelpSection.vue'
-import ChoiceSection from './components/ChoiceSection.vue'
-import WeSection from './components/WeSection.vue'
-import QuestionsSection from './components/QuestionsSection.vue'
-
-
-import FooterMy from './components/FooterMy.vue'
-
-
-const isLoggedIn = ref(false)  // Флаг, который определяет, авторизован ли пользователь
-
-// Функция для обработки входа
-const handleLogin = () => {
-  isLoggedIn.value = true
-}
+// App.vue теперь просто контейнер для роутера
 </script>
 
 <style lang="scss">
-    
+// Глобальные стили
 </style>

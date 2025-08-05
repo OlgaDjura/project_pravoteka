@@ -8,23 +8,23 @@
                 </a>
 
                 <div class="header__overlay" ref="overlayRef" data-js-header-overlay>
+                    <div class="header__menuAndButton">
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li v-for="link in navLinks" :key="link.href" class="header__menu_item">
-                                <a :href="link.href" class="header__menu-link"
-                                    :class="{ 'is-active': activeHref === link.href }"
-                                    @click.prevent="scrollToSection(link.href)">
+                                <a :href="link.href" class="header__menu-link">
                                     {{ link.label }}
                                 </a>
                             </li>
                         </ul>
                     </nav>
-                    <RouterLink to="/login">
-                        <ButtonMy @click="onButtonClick">Вход</ButtonMy>
+                    <RouterLink to="/login-page" custom v-slot="{ navigate }">
+                        <ButtonMy @click="navigate" class="header__button">Вход</ButtonMy>
                     </RouterLink>
-                    <RouterLink to="/register">
-                        <ButtonMy @click="onButtonClick">Регистрация</ButtonMy>
+                    <RouterLink to="/register-page" custom v-slot="{ navigate }">
+                        <ButtonMy @click="navigate" class="header__button">Регистрация</ButtonMy>
                     </RouterLink>
+                    </div>
                 </div>
 
                 <button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu"
@@ -39,10 +39,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 import ButtonMy from './ButtonMy.vue'
-import { useRouter } from 'vue-router'  // Импортируем useRouter
-import { defineEmits } from 'vue'
 import Logo from './Logo.vue'
 
 
@@ -67,80 +65,23 @@ watch(isMenuOpen, (newVal) => {
 
 
 
-const router = useRouter()  // Получаем доступ к маршрутизатору
-
-const emit = defineEmits()
+// Router и emit больше не нужны, так как используем RouterLink
 
 
 const navLinks = [
-    { href: '#home', label: 'ГЛАВНАЯ' },
-    { href: '#how', label: 'КАК РАБОТАЕТ' },
-    { href: '#help', label: 'КОМУ ПОМОГАЕМ' },
-    { href: '#choice', label: 'ОТБОР' },
-    { href: '#we', label: 'ПОЧЕМУ МЫ' },
-    { href: '#questions', label: 'ВОПРОСЫ' },
-    { href: '#contacts', label: 'КОНТАКТЫ' },
+    { href: '#home', label: 'Главная' },
+    { href: '#how', label: 'Для юристов' },
+    { href: '#help', label: 'Для клиентов' },
+    { href: '#choice', label: 'Наши юристы' },
 ]
 
 
-const onButtonClick = () => {
-    // Логика для входа — пример с переходом на личный кабинет
-    console.log('Попытка входа в личный кабинет');
-    // Эмитим событие о том, что пользователь вошел
-    emit('login')
-    // Здесь может быть проверка авторизации, например:
-    // если авторизован, переходим на /dashboard (личный кабинет)
-    router.push('/dashboard')  // Перенаправление на личный кабинет
-}
+// Функция onButtonClick больше не нужна, так как используем RouterLink
 
 const activeHref = ref('')
 const headerRef = ref(null)
 
-const updateActiveLink = () => {
-    const scrollY = window.scrollY + (headerRef.value?.offsetHeight || 0) + 10
 
-    navLinks.forEach(link => {
-        const section = document.querySelector(link.href)
-        if (!section) return
-
-        const top = section.offsetTop
-        const height = section.offsetHeight
-
-        if (scrollY >= top && scrollY < top + height) {
-            console.log('Активная секция:', link.href) // ВРЕМЕННО
-
-            activeHref.value = link.href
-        }
-    })
-}
-
-
-const scrollToSection = (href) => {
-    const headerHeight = headerRef.value?.offsetHeight || 0
-    const section = document.querySelector(href)
-
-    if (section) {
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY
-        const scrollPosition = sectionTop - headerHeight
-
-        window.scrollTo({
-            top: scrollPosition,
-            behavior: 'smooth',
-        })
-    }
-
-    isMenuOpen.value = false
-}
-
-
-onMounted(() => {
-    window.addEventListener('scroll', updateActiveLink)
-    updateActiveLink() // сразу выделить активную
-})
-
-onUnmounted(() => {
-    window.removeEventListener('scroll', updateActiveLink)
-})
 </script>
 
 <style scoped lang="scss">
@@ -150,15 +91,11 @@ onUnmounted(() => {
     top: 0;
     animation-name: scrolling-header;
     animation-fill-mode: both;
-    animation-timeline: scroll();
-    //animation-range: rem(100) rem(200);
-    border-top: var(--border);
-    border-bottom: var(--border);
-    background-color: var(--color-gray-50);
+   // background-color: var(--color-brown);
 
     @keyframes scrolling-header {
         to {
-            box-shadow: 0 0 1rem var(--color-dark-20);
+            box-shadow: 0 0 1rem var(--color-brown);
         }
     }
 
@@ -192,10 +129,10 @@ onUnmounted(() => {
             flex-direction: column;
             justify-content: center;
             row-gap: 3rem;
-            padding: 1rem;
-            background-color: var(--color-gray-50);
+            background-color: var(--color-brown);
             transition-duration: var(--transition-duration);
-            opacity: 0.8;
+            opacity: 0.9;
+            
 
 
             &:not(.is-active) {
@@ -206,8 +143,18 @@ onUnmounted(() => {
         }
     }
 
-    &__menu {
+    &__menuAndButton {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: fluid(10, 8);
 
+        @include mobile  {
+            flex-direction: column;
+        }
+    }
+
+    &__menu {
         @include mobile {
             overflow-y: auto;
         }
@@ -227,22 +174,21 @@ onUnmounted(() => {
             }
         }
 
-        &_item {
-            font-size: fluid(16, 14);
-        }
-
 
         &-link {
             padding: rem(14) rem(24);
-            color: var(--color-dark);
+            color: var(--color-light);
 
             &:hover {
-                background-color: var(--color-dark-20);
-                color: var(--color-light);
+                color: var(--color-sand);
             }
 
             @include laptop {
                 padding: rem(10) rem(18);
+            }
+
+            @include mobile {
+                color: var(--color-light);
             }
 
             &.is-active {
@@ -255,10 +201,11 @@ onUnmounted(() => {
     }
 
     &__logo {
-        font-size: fluid(26, 23);
+        font-size: fluid(50, 23);
         font-weight: 500;
         display: flex;
         column-gap: rem(10);
+        color: var(--color-light);
     }
 
     &__contact-us-link {
@@ -267,6 +214,12 @@ onUnmounted(() => {
             max-width: rem(300);
             align-self: center;
         }
+    }
+
+    &__button {
+        height: fluid(40, 20);
+        font-size: fluid(22, 18)
+        
     }
 
 
@@ -284,7 +237,7 @@ onUnmounted(() => {
     border: none;
 
     @include hover {
-        color: var(--color-dark-20);
+        color: var(--color-brown);
     }
 
     &.is-active {
