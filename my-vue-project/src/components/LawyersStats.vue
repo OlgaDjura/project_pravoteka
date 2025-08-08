@@ -65,12 +65,20 @@ const stats = ref([
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(rem(250), 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: fluid(10, 8);
+
+        @include laptop {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     &__card {
-
+        width: 100%;
         // Модификаторы для карточек (пример)
         &--highlight {
             border: 2px solid var(--color-brown);

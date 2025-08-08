@@ -17,6 +17,7 @@
 .logoSite {
     width: fluid(30, 20);
     height: fluid(30, 20);
+
     
 }
 </style>

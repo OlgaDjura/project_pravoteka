@@ -33,7 +33,7 @@ const description = [
 
 <style scope lang="scss">
 .home {
-    
+    overflow-x: hidden;
     //width: 100%;
     height: 100vh;
     margin: 0;
@@ -52,6 +52,7 @@ const description = [
         background: rgb(136, 41, 47, 0.7); 
         border-radius: rem(8);
         padding: fluid(20, 15);
+        margin-inline: fluid(60, 20);
     }
 
     &__title {
@@ -66,7 +67,7 @@ const description = [
 
     &__button {
         background-color: var(--color-coffee) !important;
-        width: fluid(400, 300);
+        width: fluid(400, 200);
         height: fluid(50, 30);
         font-size: fluid(22, 18) !important;
     }

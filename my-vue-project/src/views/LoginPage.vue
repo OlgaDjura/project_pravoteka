@@ -1,4 +1,5 @@
 <template>
+    <Header class="header"></Header>
     <div class="login-page">
         <!-- Фоновый градиент -->
         <div class="login-page__background">
@@ -125,6 +126,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import Header from '@/components/Header.vue'
 import Logo from '@/components/Logo.vue'
 
 const router = useRouter()
@@ -181,6 +183,9 @@ const handleSubmit = async () => {
 </script>
 
 <style lang="scss" scoped>
+.header {
+    background-color: var(--color-coffee);
+}
 .login-page {
     min-height: 100vh;
     display: flex;

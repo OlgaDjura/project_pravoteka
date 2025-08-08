@@ -72,6 +72,7 @@ const steps = [
         &--title {
             margin-bottom: rem(10);
             font-weight: 600;
+            
         }
     }
     

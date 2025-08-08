@@ -64,6 +64,7 @@ const trendArrow = {
     transition: all 0.3s ease;
     max-width: rem(250);
     margin: 0 auto;
+    
 
     &__icon {
         width: fluid(40, 23);

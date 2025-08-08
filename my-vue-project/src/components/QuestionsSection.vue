@@ -47,7 +47,7 @@ const accordionItems = [
         content: 'Да, рекомендуется заключать письменный договор на оказание юридических услуг, где будут указаны объем работ, сроки и стоимость услуг.'
     },
     {
-        title: 'Мне не понравилась работа юриста. Как поступить в такой ситуации?',
+        title: 'Что делать, если не понравилась работа юриста?',
         content: 'Правотека не несет ответственность за качество оказанной юридической помощи. Рекомендуем обязательно заключать письменный договор с юристом - это позволит вам предъявлять обоснованные требования по качеству услуг. Несмотря на то, что ответственность несет юрист, Правотека приложит возможные усилия для помощи в урегулировании разногласий между вами и специалистом.'
     },
 ]
@@ -59,9 +59,13 @@ const accordionItems = [
 <style scoped lang="scss">
 .questions {
     &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         padding-top: fluid(100, 50) ;
-        padding-bottom: fluid(100, 50);
-        
+        padding-bottom: fluid(100, 50);    
     }
 
     &__title {
@@ -71,9 +75,25 @@ const accordionItems = [
     &__list {
         display: flex;
         flex-direction: column;
+        width: rem(1000);
         row-gap: rem(20);
         margin-top: fluid(50, 30);
         
+        @include laptop {
+            width: rem(800);
+        }
+
+        @include tablet {
+            width: rem(700);
+        }
+
+        @include mobile {
+            width: rem(300);
+        }
+    }
+
+    &__item {
+        text-align: start;
     }
 }
 </style>

@@ -50,8 +50,7 @@ const helpCards = [
 .help {
     padding-block: fluid(100, 50);
     
-    &__main {
-        
+    &__main {        
         display: flex;
         flex-direction: column;
         gap: fluid(70, 50);
@@ -71,7 +70,7 @@ const helpCards = [
     }
 
     &__item {
-        background-color: var(--color-brown);
+        background-color: var(--color-coffee);
         border-radius: fluid(22, 12);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         overflow: hidden;

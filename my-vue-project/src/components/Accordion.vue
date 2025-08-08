@@ -55,10 +55,11 @@ const toggleItem = (index) => {
 </script>
 
 <style lang="scss" scoped>
-.accordion {
+.accordion {     
 
     &__item {
-
+        //width: 100%;
+        @include fluid-text(22, 13);
         &--active {
             .accordion__header {
                 background-color: var(--color-burgundy);

@@ -78,7 +78,7 @@ $translate: -50%) {
         right: $right;
         #{$property}: 0;
         translate: $translate;
-        width: 100vw;
+        width: 100%;
         height: rem(1);
         background-color: var(--color-dark-15);
     }

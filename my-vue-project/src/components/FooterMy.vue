@@ -111,7 +111,7 @@ const logItem = (item) => {
 
 <style scoped lang="scss">
 .footer {
-    background-color: var(--color-brown);
+    background-color: var(--color-coffee);
     color: var(--color-light);
     padding: rem(50) 0;
 
@@ -201,7 +201,6 @@ const logItem = (item) => {
                 @include flex-center;
                 width: 100%;
                 height: rem(60);
-                background-color: var(--color-dark-10);
                 border: var(--border);
                 border-radius: rem(6);
     

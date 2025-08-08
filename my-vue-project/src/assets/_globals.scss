@@ -4,7 +4,10 @@ html {
     &.is-lock {
         overflow: hidden;
     }
+    overflow-x: hidden;
 }
+
+
 body {
     @include fluid-text(22, 18);
     display: flex;
@@ -13,14 +16,21 @@ body {
     letter-spacing: -0.03em;
     color: var(--color-brown);
     background-color: var(--color-sand);
+    
+
+    * {
+        box-sizing: border-box;
+        }
 }
 
 main {
-    flex-grow: 1;
+    //flex-grow: 1;
+    overflow-x: hidden;
 }
 
 section {
-    scroll-margin-top: 120px; /* высота шапки + немного запаса */
+    //scroll-margin-top: 120px; /* высота шапки + немного запаса */
+    overflow-x: hidden;
 }
 
 

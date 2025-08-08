@@ -1,4 +1,5 @@
 <template>
+    <Header class="header"></Header>
     <div class="register-page">
         <!-- Фоновый градиент -->
         <div class="register-page__background">
@@ -255,6 +256,7 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
+import Header from '@/components/Header.vue'
 import ButtonMy from '@/components/ButtonMy.vue'
 import Logo from '@/components/Logo.vue'
 
@@ -368,6 +370,9 @@ const handleSubmit = async () => {
 </script>
 
 <style lang="scss" scoped>
+.header {
+    background-color: var(--color-coffee);
+}
 .register-page {
     min-height: 100vh;
     display: flex;
@@ -730,7 +735,7 @@ const handleSubmit = async () => {
     }
 
     &__button {
-        width: rem(150);
+        min-width: rem(150);
         flex-shrink: 0;
     }
 }

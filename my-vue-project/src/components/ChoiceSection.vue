@@ -41,46 +41,33 @@ const choiceAnswers = [
 
 <style scoped lang="scss">
 .choice {
-
     &__title {
         text-align: start;
     }
 
     &__list-wrapper {
-        @include laptop {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            padding-left: rem(20);
-            padding-right: rem(20);
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-        }
+        overflow-x: hidden; // убираем горизонтальный скролл на всякий случай
     }
 
     &__list {
-        margin-top: fluid(70, 50);
-        padding-block: fluid(70, 50) ;
+        padding-block: fluid(70, 50);
+        padding-top: fluid(80, 40);
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: rem(20);
         text-align: center;
-       // border-top: rem(3) solid var(--color-burgundy);
-        padding-top: fluid(80, 40);
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         @include mobile {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: rem(16);
-                min-width: max-content; // чтобы всё помещалось  
+            grid-template-columns: 1fr;
         }
     }
 
     &__item {
         line-height: 1.6;
-        min-width: rem(280); // или сколько тебе нужно
-        flex-shrink: 0; // чтобы не сжимались
 
         @include mobile {
             line-height: 1.3;
@@ -89,7 +76,7 @@ const choiceAnswers = [
 
     &__item-title {
         text-align: center;
-        color: var(--color-dark);
+        color: var(--color-brown);
         line-height: 2;
 
         @include mobile {
@@ -97,119 +84,43 @@ const choiceAnswers = [
         }
     }
 
-    &__item-1 {
-        position: relative;
+    // Нумерация элементов
+    @for $i from 1 through 4 {
+        &__item-#{$i} {
+            position: relative;
+            padding-top: fluid(80, 60);
 
-        &::before {
-            content: "1"; // заменяем цифру по необходимости
-            position: absolute;
-            top: calc(-1 * #{fluid(100, 60)}); // адаптивный отступ вверх
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            width: fluid(50, 30);
-            height: fluid(50, 30);
-            background-color: var(--color-burgundy);
-            border-radius: rem(12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: fluid(25, 20);
-            font-weight: bold;
-            color: var(--color-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            &::before {
+                content: "#{$i}";
+                position: absolute;
+                top: rem(10);
+                left: 50%;
+                transform: translateX(-50%);
+                width: fluid(50, 30);
+                height: fluid(50, 30);
+                background-color: var(--color-burgundy);
+                border-radius: rem(12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: fluid(25, 20);
+                font-weight: bold;
+                color: var(--color-light);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-            opacity: 0;
-            animation: floatIn 0.6s ease-out 0.3s forwards;
+                opacity: 0;
+                animation: floatIn 0.6s ease-out 0.3s forwards;
+            }
         }
     }
-
-    &__item-2 {
-        position: relative;
-
-        &::before {
-            content: "2"; // заменяем цифру по необходимости
-            position: absolute;
-            top: calc(-1 * #{fluid(100, 60)}); // адаптивный отступ вверх
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            width: fluid(50, 30);
-            height: fluid(50, 30);
-            background-color: var(--color-burgundy);
-            border-radius: rem(12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: fluid(25, 20);
-            font-weight: bold;
-            color: var(--color-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-            opacity: 0;
-            animation: floatIn 0.6s ease-out 0.3s forwards;
-        }
-    }
-
-    &__item-3 {
-        position: relative;
-
-        &::before {
-            content: "3"; // заменяем цифру по необходимости
-            position: absolute;
-            top: calc(-1 * #{fluid(100, 60)}); // адаптивный отступ вверх
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            width: fluid(50, 30);
-            height: fluid(50, 30);
-            background-color: var(--color-burgundy);
-            border-radius: rem(12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: fluid(25, 20);
-            font-weight: bold;
-            color: var(--color-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-            opacity: 0;
-            animation: floatIn 0.6s ease-out 0.3s forwards;
-        }
-    }
-
-    &__item-4 {
-        position: relative;
-
-        &::before {
-            content: "4"; // заменяем цифру по необходимости
-            position: absolute;
-            top: calc(-1 * #{fluid(100, 60)}); // адаптивный отступ вверх
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            width: fluid(50, 30);
-            height: fluid(50, 30);
-            background-color: var(--color-burgundy);
-            border-radius: fluid(12, 8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: fluid(25, 20);
-            font-weight: bold;
-            color: var(--color-light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-            opacity: 0;
-            animation: floatIn 0.6s ease-out 0.3s forwards ;
-        }
-    }
-
 
     @keyframes floatIn {
         0% {
-            transform: translateX(-50%) translateY(-20px);
+            transform: translateX(-50%) scale(0.8);
             opacity: 0;
         }
-
         100% {
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) scale(1);
             opacity: 1;
         }
     }
